@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.custom {
+  font-size: 24px;
+}
