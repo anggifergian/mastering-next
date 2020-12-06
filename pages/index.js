@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostedData } from '../lib/posts'
-import Link from 'next/link'
+import Date from '../components/date'
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostedData()
@@ -17,6 +18,7 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+
       <section className={utilStyles.headingMd}>
         <p>I'm Fullstack developer.</p>
         <p>
@@ -31,12 +33,12 @@ export default function Home({ allPostsData }) {
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
-                <a className={utilStyles.headingBold}>{title}</a>
+                <a>{title}</a>
               </Link>{' '}
               <br />
-              <span>
-                {id} | {date}
-              </span>
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>
