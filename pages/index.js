@@ -20,7 +20,7 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section className={utilStyles.headingMd}>
-        <p>I'm Fullstack developer.</p>
+        <p className="py-4 text-center">I'm Fullstack developer.</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
@@ -29,19 +29,19 @@ export default function Home({ allPostsData }) {
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+        <div className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <div className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
-              </Link>{' '}
-              <br />
-              <small className={utilStyles.lightText}>
+              </Link>
+
+              <div className="text-base text-gray-400">
                 <Date dateString={date} />
-              </small>
-            </li>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     </Layout>
   )
