@@ -1,48 +1,22 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css'
-import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostedData } from '../lib/posts'
-import Date from '../components/date'
+import Layout from '../components/Layout'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostedData()
-  return {
-    props: { allPostsData },
-  }
-}
+const cards = [
+  { id: 1, name: 'Samsung Galaxy J5 Prime', price: 10_000 },
+  { id: 2, name: 'Iphone Xr', price: 15_600 },
+  { id: 3, name: 'OnePlus 8', price: 8_800 },
+]
 
-export default function Home({ allPostsData }) {
+export default function Home() {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-
-      <section className={utilStyles.headingMd}>
-        <p className="py-4 text-center">I'm Fullstack developer.</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <div className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <div className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-
-              <div className="text-base text-gray-400">
-                <Date dateString={date} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </Layout>
+    <div id='main'>
+      <Layout>
+        {cards.map(card => (
+          <div key={card.id} className="flex-1 border border-opacity-50 shadow-lg hover:shadow transition duration-300 ease-out bg-white px-6 py-4 mb-6 text-white rounded-lg">
+            <div className='font-semibold text-md text-gray-700'>{card.name}</div>
+            <p className='font-normal text-sm text-gray-500'>Rp.{card.price}</p>
+          </div>
+        ))}
+      </Layout>
+    </div>
   )
 }
