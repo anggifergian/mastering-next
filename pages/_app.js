@@ -4,9 +4,19 @@ import { UIContext } from '../context/UIContext';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  const [isScroll, setIsScroll] = useState(false)
+  const [value, setValue] = useState({
+    isNavFill: false,
+    isScrollTop: false
+  })
 
-  const handleScroll = () => setIsScroll(window.scrollY >= 70)
+  const handleChange = newValue => setValue({ ...value, ...newValue })
+
+  const handleScroll = () => {
+    handleChange({
+      isNavFill: window.scrollY >= 60,
+      isScrollTop: window.scrollY >= 300
+    })
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -14,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <UIContext.Provider value={isScroll}>
+    <UIContext.Provider value={{value, setValue}}>
       <Component {...pageProps} />
     </UIContext.Provider>
   )
