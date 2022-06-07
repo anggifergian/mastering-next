@@ -1,22 +1,20 @@
 import { useContext } from 'react'
 import { UIContext } from '../context/UIContext'
-
-import Header from './Header'
-import Navbar from './Navbar'
+import { Header, Navbar, Footer, ScrollTop } from './index'
 
 export default function Layout({ children, title = "Mastering Next" }) {
-  const isScroll = useContext(UIContext)
+  const context = useContext(UIContext)
 
   return (
     <>
       <Header title={title} />
-
-      <main className="mx-4 px-4 relative min-h-screen md:flex md:flex-col">
-        <Navbar isScroll={isScroll} />
-
-        <div className={`px-4 pt-10 md:pt-20`} style={{ height: 1000 }}>
+      <main className="flex flex-col h-screen bg-red-200">
+        <Navbar isNavFill={context.value.isNavFill} />
+        <main className="bg-white pt-0 md:pt-20 flex-grow">
           {children}
-        </div>
+        </main>
+        <Footer />
+        <ScrollTop isScrollTop={context.value.isScrollTop} />
       </main>
     </>
   )
