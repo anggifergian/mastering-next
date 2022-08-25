@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import { Layout } from '../components'
 
 const cards = [
   { id: 1, name: 'Samsung Galaxy J5 Prime', price: 10_000 },
