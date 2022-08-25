@@ -1,6 +1,13 @@
 export { default as Button } from './Button'
+export { default as Container } from './Container'
 export { default as Footer } from './Footer'
 export { default as Header } from './Header'
+export { default as Image } from './Image'
+export { default as Heading } from './label/Heading'
+export { default as Paragraph } from './label/Paragraph'
+export { default as Title } from './label/Title'
 export { default as Layout } from './Layout'
 export { default as Navbar } from './Navbar'
 export { default as ScrollTop } from './ScrollTop'
+
+export * from './icons'

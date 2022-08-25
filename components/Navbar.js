@@ -10,7 +10,12 @@ const navigations = [
     key: 'about-us',
     path: '/about-us',
     title: 'About us'
-  }
+  },
+  {
+    key: 'framer',
+    path: '/framer',
+    title: 'Framer'
+  },
 ]
 
 const nav_wrapper = 'fixed inset-x-0 top-0 z-10 px-10 py-4 hidden md:block transition duration-300 ease-in'
