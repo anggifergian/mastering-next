@@ -1,6 +1,16 @@
+import useSWR from "swr";
 import Layout from "../components/Layout";
 
 export default function AboutUs() {
+  const address = 'https://jsonplaceholder.typicode.com/todos'
+  const fetcher = (url) => fetch(url).then(res => res.json())
+  const { data, error } = useSWR(address, fetcher)
+
+  if (error) {
+    return <p>Error</p>
+  }
+  console.log(data)
+
   return (
     <Layout>
       <div className="h-72 md:h-96 w-100 bg-blue-500 flex justify-center items-center p-10 transition duration-100 ease-out">

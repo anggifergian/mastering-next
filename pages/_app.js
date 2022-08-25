@@ -23,6 +23,10 @@ function MyApp({ Component, pageProps }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    console.log(pageProps)
+  }, [])
+
   return (
     <UIContext.Provider value={{value, setValue}}>
       <Component {...pageProps} />
