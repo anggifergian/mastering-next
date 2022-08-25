@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   useEffect(() => {
-    console.log(pageProps)
+    console.log('_app', pageProps)
   }, [])
 
   return (
