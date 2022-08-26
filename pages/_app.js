@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence } from 'framer-motion';
 
 import { UIContext } from '../context/UIContext';
 import '../styles/globals.css'
@@ -28,8 +29,10 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <UIContext.Provider value={{value, setValue}}>
-      <Component {...pageProps} />
+    <UIContext.Provider value={{ value, setValue }}>
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} />
+      </AnimatePresence>
     </UIContext.Provider>
   )
 }

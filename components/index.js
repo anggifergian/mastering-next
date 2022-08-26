@@ -11,3 +11,4 @@ export { default as Navbar } from './Navbar'
 export { default as ScrollTop } from './ScrollTop'
 
 export * from './icons'
+export * from './framer'

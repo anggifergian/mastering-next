@@ -1,4 +1,5 @@
 import React from 'react'
+import { FadeInAndOut } from './framer'
 
 const Container = ({ children, type = 'md', hidePadding = false }) => {
     const maxWidth = {
@@ -9,9 +10,13 @@ const Container = ({ children, type = 'md', hidePadding = false }) => {
     }
 
     return (
-        <div className={`${hidePadding ? 'p-0' : 'p-4'} ${maxWidth[type]} mx-auto h-full`}>
-            {children}
-        </div>
+        <FadeInAndOut>
+            <div
+                className={`${hidePadding ? 'p-0' : 'p-4'} ${maxWidth[type]} mx-auto h-full`}
+            >
+                {children}
+            </div>
+        </FadeInAndOut>
     )
 }
 
