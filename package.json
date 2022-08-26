@@ -11,7 +11,7 @@
     "@heroicons/react": "^2.0.7",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
-    "framer-motion": "^6.3.10",
+    "framer-motion": "^4.1.17",
     "fsevents": "^2.3.2",
     "gray-matter": "^4.0.2",
     "next": "10.0.3",
